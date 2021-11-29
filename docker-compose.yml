@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   postgres:
-    image: sorrell/agensgraph-extension
+    image: sorrell/apache-age
     ports:
       - 5435:5432
     env_file:
@@ -13,3 +13,13 @@ services:
     volumes:
       - ./docker-entrypoint/initdb.d:/docker-entrypoint-initdb.d:ro
       - ./var/lib/postgres:/var/lib/postgresql/11/main:delegated
+
+  ageviewer:
+    depends_on:
+      - postgres
+    restart: on-failure
+    links:
+      - postgres
+    image: joefagan/incubator-age-viewer
+    ports:
+      - 3001:3001
