@@ -51,3 +51,8 @@ $$) AS (subord_lastname agtype, subord_title agtype, mgr_lastname agtype, mgr_ti
 (8 rows)
 ```
 
+
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
