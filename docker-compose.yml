@@ -1,7 +1,6 @@
-version: "3.5"
 services:
   postgres:
-    image: sorrell/agensgraph-extension
+    build: .
     ports:
       - 5435:5432
     env_file:
@@ -12,4 +11,4 @@ services:
       POSTGRES_USER: ${DB_USER}
     volumes:
       - ./docker-entrypoint/initdb.d:/docker-entrypoint-initdb.d:ro
-      - ./var/lib/postgres:/var/lib/postgresql/11/main:delegated
+      - ./var/lib/postgres:/var/lib/postgresql/16/main:delegated
